@@ -22,9 +22,6 @@ use Spryker\Glue\NavigationsRestApi\Processor\Navigation\NavigationReaderInterfa
  */
 class NavigationsRestApiFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Glue\NavigationsRestApi\Processor\Navigation\NavigationReaderInterface
-     */
     public function createNavigationReader(): NavigationReaderInterface
     {
         return new NavigationReader(
@@ -35,17 +32,11 @@ class NavigationsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\NavigationsRestApi\Processor\Mapper\NavigationMapperInterface
-     */
     public function createNavigationMapper(): NavigationMapperInterface
     {
         return new NavigationMapper();
     }
 
-    /**
-     * @return \Spryker\Glue\NavigationsRestApi\Processor\Expander\NavigationNodeExpanderInterface
-     */
     public function createNavigationNodeExpander(): NavigationNodeExpanderInterface
     {
         return new NavigationNodeExpander(
@@ -54,17 +45,11 @@ class NavigationsRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\NavigationsRestApi\Dependency\Client\NavigationsRestApiToNavigationStorageClientInterface
-     */
     public function getNavigationStorageClient(): NavigationsRestApiToNavigationStorageClientInterface
     {
         return $this->getProvidedDependency(NavigationsRestApiDependencyProvider::CLIENT_NAVIGATION_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Glue\NavigationsRestApi\Dependency\Client\NavigationsRestApiToUrlStorageClientInterface
-     */
     public function getUrlStorageClient(): NavigationsRestApiToUrlStorageClientInterface
     {
         return $this->getProvidedDependency(NavigationsRestApiDependencyProvider::CLIENT_URL_STORAGE);

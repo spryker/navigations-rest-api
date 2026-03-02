@@ -27,11 +27,6 @@ class NavigationsRestApiDependencyProvider extends AbstractBundleDependencyProvi
      */
     public const CLIENT_URL_STORAGE = 'CLIENT_URL_STORAGE';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -41,11 +36,6 @@ class NavigationsRestApiDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addNavigationStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_NAVIGATION_STORAGE, function (Container $container) {
@@ -57,11 +47,6 @@ class NavigationsRestApiDependencyProvider extends AbstractBundleDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addUrlStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_URL_STORAGE, function (Container $container) {

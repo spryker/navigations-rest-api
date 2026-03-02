@@ -42,12 +42,6 @@ class NavigationReader implements NavigationReaderInterface
      */
     protected $navigationNodeExpander;
 
-    /**
-     * @param \Spryker\Glue\NavigationsRestApi\Dependency\Client\NavigationsRestApiToNavigationStorageClientInterface $navigationStorageClient
-     * @param \Spryker\Glue\NavigationsRestApi\Processor\Mapper\NavigationMapperInterface $navigationMapper
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     * @param \Spryker\Glue\NavigationsRestApi\Processor\Expander\NavigationNodeExpanderInterface $navigationNodeExpander
-     */
     public function __construct(
         NavigationsRestApiToNavigationStorageClientInterface $navigationStorageClient,
         NavigationMapperInterface $navigationMapper,
@@ -60,11 +54,6 @@ class NavigationReader implements NavigationReaderInterface
         $this->navigationNodeExpander = $navigationNodeExpander;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function getNavigationByKey(RestRequestInterface $restRequest): RestResponseInterface
     {
         $restResponse = $this->restResourceBuilder->createRestResponse();
@@ -81,11 +70,6 @@ class NavigationReader implements NavigationReaderInterface
         return $restResponse->addResource($restResource);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface|null
-     */
     protected function findNavigationTreeByKey(RestRequestInterface $restRequest): ?RestResourceInterface
     {
         $navigationStorageTransfer = $this->navigationStorageClient->findNavigationTreeByKey(
@@ -100,11 +84,6 @@ class NavigationReader implements NavigationReaderInterface
         return $this->buildNavigationResource($navigationStorageTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\NavigationStorageTransfer $navigationStorageTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceInterface
-     */
     protected function buildNavigationResource(
         NavigationStorageTransfer $navigationStorageTransfer
     ): RestResourceInterface {
@@ -122,9 +101,6 @@ class NavigationReader implements NavigationReaderInterface
         );
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\RestErrorMessageTransfer
-     */
     protected function createNavigationIdMissingError(): RestErrorMessageTransfer
     {
         $restErrorTransfer = (new RestErrorMessageTransfer())
@@ -135,9 +111,6 @@ class NavigationReader implements NavigationReaderInterface
         return $restErrorTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\RestErrorMessageTransfer
-     */
     protected function createNavigationNotFoundError(): RestErrorMessageTransfer
     {
         $restErrorTransfer = (new RestErrorMessageTransfer())

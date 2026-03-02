@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\RestNavigationAttributesTransfer;
 
 interface NavigationMapperInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\NavigationStorageTransfer $navigationStorageTransfer
-     * @param \Generated\Shared\Transfer\RestNavigationAttributesTransfer $restNavigationAttributesTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestNavigationAttributesTransfer
-     */
     public function mapNavigationStorageTransferToRestNavigationAttributesTransfer(
         NavigationStorageTransfer $navigationStorageTransfer,
         RestNavigationAttributesTransfer $restNavigationAttributesTransfer
