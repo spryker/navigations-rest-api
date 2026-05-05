@@ -1,0 +1,53 @@
+resource:
+    name: Navigations
+    shortName: navigations
+    description: 'Navigation tree retrieval'
+
+    provider: Spryker\Glue\NavigationsRestApi\Api\Storefront\Provider\NavigationsStorefrontProvider
+
+    paginationEnabled: false
+
+    operations:
+        - type: Get
+          description: 'Retrieve a navigation tree by key'
+        - type: GetCollection
+          description: 'Navigation collection is not supported'
+
+    includes:
+        - relationshipName: category-nodes
+          targetResource: CategoryNodes
+          resolverClass: Spryker\Glue\CategoriesRestApi\Api\Storefront\Relationship\NavigationCategoryNodesRelationshipResolver
+
+    properties:
+        navigationId:
+            type: string
+            identifier: true
+            writable: false
+            readable: true
+            required: false
+            description: 'Navigation key identifier'
+            openapiContext:
+                example: 'MAIN_NAVIGATION'
+
+        name:
+            type: string
+            writable: false
+            readable: true
+            required: false
+            description: 'Navigation name'
+            openapiContext:
+                example: 'Main Navigation'
+
+        isActive:
+            type: boolean
+            writable: false
+            readable: true
+            required: false
+            description: 'Whether the navigation is active'
+
+        nodes:
+            type: array
+            writable: false
+            readable: true
+            required: false
+            description: 'Navigation tree nodes with children'

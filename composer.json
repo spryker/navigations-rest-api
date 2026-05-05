@@ -14,7 +14,11 @@
         "spryker/url-storage": "^1.9.0"
     },
     "require-dev": {
+        "spryker/api-platform": "*",
         "spryker/code-sniffer": "*"
+    },
+    "suggest": {
+        "spryker/api-platform": "If you want to use API Platform for REST API endpoints."
     },
     "autoload": {
         "psr-4": {
