@@ -10,8 +10,22 @@ resource:
     operations:
         - type: Get
           description: 'Retrieve a navigation tree by key'
+          openapiContext:
+              summary: 'Retrieve a navigation tree'
+              description: 'Returns the navigation tree identified by its key for the current locale.'
+              responses:
+                  200:
+                      description: 'Navigation tree returned.'
+                  404:
+                      description: 'Navigation not found.'
         - type: GetCollection
           description: 'Navigation collection is not supported'
+          openapiContext:
+              summary: 'List navigations (always 400)'
+              description: 'Navigations are addressed by key; the bare collection URL always returns 400.'
+              responses:
+                  400:
+                      description: 'Navigation id not specified.'
 
     includes:
         - relationshipName: category-nodes
