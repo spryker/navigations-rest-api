@@ -32,4 +32,8 @@
     <transfer name="UrlStorage">
     </transfer>
 
+    <transfer name="Locale">
+        <property name="localeName" type="string"/>
+    </transfer>
+
 </transfers>
